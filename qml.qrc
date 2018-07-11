@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>MainView.qml</file>
+        <file>MainViewForm.ui.qml</file>
+        <file>BottonView.qml</file>
+        <file>BottonViewForm.ui.qml</file>
+    </qresource>
+</RCC>
