@@ -1,0 +1,26 @@
+[33mcommit a40d120caf2ae117e641eb8a9dae64f77b7d2940[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Merge: ed95798 76505b2
+Author: spacedrug <pborowski@outlook.com>
+Date:   Wed Jul 11 23:17:43 2018 +0200
+
+    Merge branch 'master' of https://github.com/spacedrug/countMe
+    
+    Pull for push reasons
+
+[33mcommit 76505b2b9a22b89bd37a2fc1ec65e835b996a816[m
+Author: spacedrug <32979270+spacedrug@users.noreply.github.com>
+Date:   Wed Jul 11 23:09:53 2018 +0200
+
+    Initial commit
+
+[33mcommit ed95798e305df03c3c118f869edc6b507819f1a2[m
+Author: spacedrug <pborowski@outlook.com>
+Date:   Wed Jul 11 23:08:56 2018 +0200
+
+    Adding README.md
+
+[33mcommit a23ca85ecb603acc3ba6dc11e7ce42d363198aec[m
+Author: spacedrug <pborowski@outlook.com>
+Date:   Wed Jul 11 23:03:14 2018 +0200
+
+    Ver 1.0 - working body

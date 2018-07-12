@@ -1,6 +1,5 @@
 import QtQuick 2.11
 import QtQuick.Window 2.11
-import QtQuick.Controls 2.2
 import QtQuick.Controls 2.3
 
 Window {
@@ -46,7 +45,8 @@ Window {
                 x: 138
                 y: 0
                 height: 50
-                text: qsTr("countMe")
+                text: "countMe"
+                font.family: "Verdana"
                 enabled: false
                 anchors.horizontalCenter: parent.horizontalCenter
                 anchors.verticalCenter: parent.verticalCenter
@@ -64,9 +64,7 @@ Window {
                 anchors.rightMargin: 0
             }
         }
-
-    }
-
+    } // topBar
 
 
     MainView {
@@ -80,9 +78,7 @@ Window {
         anchors.bottomMargin: 0
         anchors.top: topBar.bottom
 
-    }
-
-
+    } // mainView
 
 
     BottonView {
@@ -93,10 +89,7 @@ Window {
         anchors.leftMargin: 0
         anchors.bottom: parent.bottom
 
-    }
+    } // bottomView
 
 
-
-
-    // Window
-}
+} // Window

@@ -25,5 +25,4 @@ MainViewForm {
             minText.text = minSpin.value
         }
     }
-
 }
