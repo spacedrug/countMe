@@ -25,4 +25,18 @@ MainViewForm {
             minText.text = minSpin.value
         }
     }
+
+    buttonCount.onClicked: {
+        if(buttonCount.text == "count") {
+            buttonCount.text = "stop"
+            buttonCount.enabled = false
+            timer.start()
+        }
+    }
+
+    Timer {
+        id: timer
+        triggeredOnStart: false // manage this property how its working
+        onTriggered: time.text = Date().toString()
+    }
 }
