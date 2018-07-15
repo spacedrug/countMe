@@ -6,6 +6,8 @@ Rectangle {
     width: 400
     height: 350
     color: "#444444"
+    property alias textStatus: textStatus
+    property alias buttonPause: buttonPause
     property alias buttonCount: buttonCount
 
     property alias secText: secText
@@ -26,7 +28,7 @@ Rectangle {
         anchors.horizontalCenterOffset: -75
         anchors.horizontalCenter: parent.horizontalCenter
 
-        onValueModified: buttonCount.enabled = true
+        //onValueModified: buttonCount.enabled = true
     }
 
     SpinBox {
@@ -42,7 +44,7 @@ Rectangle {
         anchors.horizontalCenterOffset: 75
         anchors.horizontalCenter: parent.horizontalCenter
 
-        onValueModified: buttonCount.enabled = true
+        //onValueModified: buttonCount.enabled = true
     }
 
     TextArea {
@@ -108,6 +110,38 @@ Rectangle {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenterOffset: 100
         anchors.verticalCenter: parent.verticalCenter
+    }
+
+    Button {
+        id: buttonPause
+        x: 152
+        y: 270
+        width: 120
+        height: 35
+        text: qsTr("pause")
+        visible: false
+        anchors.horizontalCenterOffset: 0
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.verticalCenterOffset: 140
+    }
+
+    TextArea {
+        id: textStatus
+        x: 76
+        y: 90
+        width: 150
+        height: 50
+        text: qsTr("")
+        placeholderText: "idle"
+        verticalAlignment: Text.AlignVCenter
+        anchors.horizontalCenterOffset: 0
+        horizontalAlignment: Text.AlignHCenter
+        anchors.horizontalCenter: parent.horizontalCenter
+        readOnly: true
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.verticalCenterOffset: -125
+        font.pointSize: 16
     }
 
 }

@@ -2,6 +2,8 @@ import QtQuick 2.4
 
 MainViewForm {
 
+    property bool isCounting: false
+
     secSpin.onValueChanged: {
 
         console.log("secText lenght: " + secText.length)
@@ -12,6 +14,11 @@ MainViewForm {
         else {
             secText.text = secSpin.value
         }
+
+        if(minSpin.value != 0 || secSpin.value != 0) {
+            buttonCount.enabled = true
+        }
+        else buttonCount.enabled = false
     }
 
     secText.onTextChanged: {
@@ -31,28 +38,55 @@ MainViewForm {
         else {
             minText.text = minSpin.value
         }
+
+        if(minSpin.value != 0 || secSpin.value != 0) {
+            buttonCount.enabled = true
+        }
+        else buttonCount.enabled = false
     }
 
-
-
     buttonCount.onClicked: {
+
         if(buttonCount.text == "count") {
             buttonCount.text = "stop"
-            buttonCount.enabled = false
             timer.start()
+            textStatus.text = "running"
+            buttonPause.visible = true
             console.log("Wcisnieto button - timer.start()")
         }
-        if(minText.placeholderText == "00") minText.text = "00"
+        else {
+            timer.stop()
+            textStatus.text = "stopped"
+            console.log("Wcisnieto button - timer.stop()")
+            buttonCount.text = "count"
+        }
+
+        console.log(minText.placeholderText)
+        if(minText.text == "") {
+            minText.text = "00"
+        }
+    }
+
+    buttonPause.onClicked: {
+        if(timer.running) {
+            timer.stop()
+            textStatus.text = "paused"
+        }
+        else {
+            timer.start()
+            textStatus.text = "running"
+        }
+
     }
 
     Timer {
         id: timer
-        triggeredOnStart: false // manage this property how its working
+        triggeredOnStart: false // manage this property - how its working
         repeat: true
         onTriggered: {
 
             if(minText.text == "00" && secText.text == "00") {
-                timer.stop()
+                timer.stop()                
                 console.log("if #1 - timer.stop()")
             }
 
@@ -64,15 +98,30 @@ MainViewForm {
                 }
                 else secText.text--
             }
-            else if(minText.text != "00") {
+            else if(minText.text != "00" && secText.text == "00") {
                 console.log("if #3")
-                minText.text--
-            }
+                if(secText.text <= 10) {
+                    minText.text--
+                    minText.text = "0" + minText.text
+                }
+                else minText.text--
 
+                secText.text = "59"
+            }
+            else if(minText.text != "00" && secText.text != "00") {
+                if(secText.text <= 10) {
+                    secText.text--
+                    secText.text = "0" + secText.text
+                }
+                else secText.text--
+                console.log("if #4")
+            }
             else {
                 console.log("else")
-
             }
+
+
+
             console.log("timer.onTriggered, minText:" + minText.text + " secText:" + secText.text)
         }
     }
