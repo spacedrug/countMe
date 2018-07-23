@@ -9,6 +9,10 @@ Window {
     height: 600
     color: "#444444"
     title: qsTr("countMe")
+    maximumHeight: 600
+    maximumWidth: 400
+    minimumHeight: 600
+    minimumWidth: 400
 
     Rectangle {
         id: topBar

@@ -56,9 +56,13 @@ MainViewForm {
         }
         else {
             timer.stop()
+            secSpin.value = 0
+            minSpin.value = 0
             textStatus.text = "stopped"
             console.log("Wcisnieto button - timer.stop()")
-            buttonCount.text = "count"
+            buttonPause.visible = false
+            buttonPause.text = "pause"
+            buttonCount.text = "count"                       
         }
 
         console.log(minText.placeholderText)
@@ -71,25 +75,30 @@ MainViewForm {
         if(timer.running) {
             timer.stop()
             textStatus.text = "paused"
+            buttonPause.text = "run"
         }
         else {
             timer.start()
+            buttonPause.text = "pause"
             textStatus.text = "running"
         }
-
     }
 
     Timer {
         id: timer
-        triggeredOnStart: false // manage this property - how its working
+        triggeredOnStart: true // manage this property - how its working
         repeat: true
         onTriggered: {
 
             if(minText.text == "00" && secText.text == "00") {
-                timer.stop()                
+                timer.stop()
+                buttonPause.visible = false
+                secSpin.value = 0
+                minSpin.value = 0
+                textStatus.text = "stopped"
+                buttonCount.text = "count"
                 console.log("if #1 - timer.stop()")
             }
-
             else if(minText.text == "00" && secText.text != "00") {
                 console.log("if #2")
                 if(secText.text <= 10) {
@@ -119,8 +128,6 @@ MainViewForm {
             else {
                 console.log("else")
             }
-
-
 
             console.log("timer.onTriggered, minText:" + minText.text + " secText:" + secText.text)
         }

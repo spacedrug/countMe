@@ -26,9 +26,7 @@ Rectangle {
         anchors.verticalCenterOffset: 30
         anchors.verticalCenter: parent.verticalCenter
         anchors.horizontalCenterOffset: -75
-        anchors.horizontalCenter: parent.horizontalCenter
-
-        //onValueModified: buttonCount.enabled = true
+        anchors.horizontalCenter: parent.horizontalCenter        
     }
 
     SpinBox {
@@ -42,9 +40,7 @@ Rectangle {
         anchors.verticalCenterOffset: 30
         anchors.verticalCenter: parent.verticalCenter
         anchors.horizontalCenterOffset: 75
-        anchors.horizontalCenter: parent.horizontalCenter
-
-        //onValueModified: buttonCount.enabled = true
+        anchors.horizontalCenter: parent.horizontalCenter       
     }
 
     TextArea {
