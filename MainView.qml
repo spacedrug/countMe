@@ -21,6 +21,9 @@ MainViewForm {
         else buttonCount.enabled = false
     }
 
+    minSpin.enabled: timer.running ? false : true
+    secSpin.enabled: timer.running ? false : true
+
     secText.onTextChanged: {
         if(secText.value < 10) {
             secText.text = "0" + secSpin.value
@@ -52,6 +55,8 @@ MainViewForm {
             timer.start()
             textStatus.text = "running"
             buttonPause.visible = true
+//            minSpin.enabled = false
+//            secSpin.enabled = false
             console.log("Wcisnieto button - timer.start()")
         }
         else {
